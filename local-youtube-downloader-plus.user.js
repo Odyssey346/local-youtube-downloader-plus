@@ -6,7 +6,7 @@
 // @name:ja      ローカル YouTube ダウンローダー
 // @name:kr      로컬 YouTube 다운로더
 // @namespace    https://oxygemo.github.io
-// @version      0.9.33-plus1
+// @version      0.1
 // @description        A fork of the Local YouTube Downloader userscript with various improvements.
 // @description:zh-TW  不需透過第三方服務即可下載 YouTube 影片。
 // @description:zh-HK  不需透過第三方服務即可下載 YouTube 影片。
