@@ -142,7 +142,7 @@
 			adaptive: 'अनुकूली (Adaptive)',
 			videoid: 'वीडियो आईडी: {{id}}'
 		},
-        no: {
+        'nb-NO': {
             togglelinks: 'Vis/gjem video nedlastninglenker',
             stream: 'Direktestrømming',
             adaptive: 'Adaptiv',
