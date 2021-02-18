@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Local YouTube Downloader+
+// @name         Local YouTube Downloader Plus
 // @name:zh-TW   本地 YouTube 下載器
 // @name:zh-HK   本地 YouTube 下載器
 // @name:zh-CN   本地 YouTube 下载器
@@ -7,7 +7,7 @@
 // @name:kr      로컬 YouTube 다운로더
 // @namespace    https://oxygemo.github.io
 // @version      0.9.33+
-// @description        A fork of Local YouTube Downloader with various improvements.
+// @description        A fork of the Local YouTube Downloader userscript with various improvements.
 // @description:zh-TW  不需透過第三方服務即可下載 YouTube 影片。
 // @description:zh-HK  不需透過第三方服務即可下載 YouTube 影片。
 // @description:zh-CN  不需要透过第三方的服务就能下载 YouTube 视频。
