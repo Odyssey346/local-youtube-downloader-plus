@@ -4,7 +4,7 @@ Welcome to Local YouTube Downloader+! This is a fork of <a href="https://greasyf
 <h2> Features Not Found Upstream</h2>
 <b>Dark Mode</b>
 
-Don't blind yourself at night! I added a dark mode to Local YouTube Downloader Plus. If your system/browser is in dark mode, then the window that pops up when you download a video will also be in dark mode. 
+Protect your eyes with Dark Mode! I added a dark mode to Local YouTube Downloader Plus. If your system/browser is in dark mode, then the window that pops up when you download a video will also be in dark mode. 
 
 <b> Better Grammar </b>
 
