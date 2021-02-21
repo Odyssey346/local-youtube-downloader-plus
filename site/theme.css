@@ -1,0 +1,25 @@
+body {
+    background-color: #202020;
+    color: white;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: monospace;
+}
+
+a {
+    color:aqua;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+footer {
+    bottom: 0;
+    margin: 10px;
+    position: relative;
+    text-align: center;
+}

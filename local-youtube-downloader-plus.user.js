@@ -49,7 +49,7 @@
 			dlmp4: 'Download high-resolution mp4 in one click',
 			get_video_failed:
 				'You seem to have an ad-blocking extension installed, which blocks %s.\nPlease add the following rule to the rule set, or it will prevent Local YouTube Downloader from working.\n\nP.S.: If you can\'t install the rule, you should uninstall your adblocker and use “uBlock Origin” instead.\nIf you still don’t understand what I am saying, just disable or uninstall all your ad-blockers...',
-			live_stream_disabled_message: 'Local YouTube Downloader is not available for livestreams.'
+			live_stream_disabled_message: 'Local YouTube Downloader is not available for livestreams.',
 		},
 		'zh-tw': {
 			togglelinks: '顯示 / 隱藏連結',
@@ -363,28 +363,32 @@ self.onmessage=${workerMessageHandler}`
 		a.click()
 		a.remove()
 	}
+
 	const dlModalTemplate = `
-<div style="width: 100%; height: 100%;">
-	<div v-if="merging" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; font-size: 24px;">Merging video, please wait...</div>
-	<div v-else style="height: 100%; width: 100%; display: flex; flex-direction: column;">
- 		<div style="flex: 1; margin: 10px;">
-			<p style="font-size: 24px;">Video</p>
-			<progress style="width: 100%;" :value="video.progress" min="0" max="100"></progress>
-			<div style="display: flex; justify-content: space-between;">
-				<span>{{video.speed}} kB/s</span>
-				<span>{{video.loaded}}/{{video.total}} MB</span>
+<div id="main" style="width: 100%; height: 100%;">
+		<div v-if="merging" style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; font-size: 24px;">Merging video, please wait...</div>
+		<div v-else style="height: 100%; width: 100%; display: flex; flex-direction: column;">
+			<div style="flex: 1; margin: 10px;">
+				<p style="font-size: 24px;">Video</p>
+				<progress style="width: 100%;" :value="video.progress" min="0" max="100"></progress>
+				<div style="display: flex; justify-content: space-between;">
+					<span>{{video.speed}} kB/s</span>
+					<span>{{video.loaded}}/{{video.total}} MB</span>
+				</div>
 			</div>
-		</div>
-		<div style="flex: 1; margin: 10px;">
-			<p style="font-size: 24px;">Audio</p>
-			<progress style="width: 100%;" :value="audio.progress" min="0" max="100"></progress>
-			<div style="display: flex; justify-content: space-between;">
-				<span>{{audio.speed}} kB/s</span>
-				<span>{{audio.loaded}}/{{audio.total}} MB</span>
+			<div class="wwd_div">
+				<p style="text-align:center;" id="wwd">This can take a while depending on how long the video is, please wait!</p>
+			</div>
+			<div style="flex: 1; margin: 10px;">
+				<p style="font-size: 24px;">Audio</p>
+				<progress style="width: 100%;" :value="audio.progress" min="0" max="100"></progress>
+				<div style="display: flex; justify-content: space-between;">
+					<span>{{audio.speed}} kB/s</span>
+					<span>{{audio.loaded}}/{{audio.total}} MB</span>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 `
 	function openDownloadModel(adaptive, title) {
 		const win = open(
@@ -395,6 +399,8 @@ self.onmessage=${workerMessageHandler}`
 		const div = win.document.createElement('div')
 		win.document.body.appendChild(div)
 		win.document.title = `Downloading "${title}"`
+		win.document.head.innerHTML += "<style>@media (prefers-color-scheme: dark) {body { background: rgb(18, 18, 18); color: white;} }</style>" + win.document.head.innerHTML;
+		console.log(win.document.head.innerHTML)
 		const dlModalApp = new Vue({
 			template: dlModalTemplate,
 			data() {
@@ -416,6 +422,7 @@ self.onmessage=${workerMessageHandler}`
 			},
 			methods: {
 				async start(adaptive, title) {
+                    
 					win.onbeforeunload = () => true
 					// YouTube's default order is descending by video quality
 					const videoObj = adaptive
